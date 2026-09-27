@@ -1,8 +1,8 @@
 ---
-name: geo-seo
-description: Audit and optimize websites for AI-powered search engines (ChatGPT, Claude, Perplexity, Gemini) while maintaining traditional SEO foundations.
+name: geo-seo-universal
+description: Universal AI-powered GEO/SEO audit tool for agents.
 license: MIT
-compatibility: Requires python3 (3.11+) and outbound HTTPS. Works with Claude Code, OpenCode, Codex, KiloCode, and any agent supporting MCP or standard Markdown skill files.
+compatibility: Requires python3 (3.11+) and outbound HTTPS. Works with Hermes Agent, OpenCode, Codex, KiloCode, and any agent supporting standard Markdown skill files.
 metadata:
   author: instax-dutta
   version: "1.0.0"
@@ -41,83 +41,18 @@ Every audit follows this 4-phase loop:
 Run a full GEO audit on a target URL.
 
 ```bash
-python scripts/geo-audit.py --url https://example.com --output audit-report.md
-```
-
-### `geo-mentions`
-Track brand mentions across AI search engines.
-
-```bash
-python scripts/geo-mentions.py --brand "MyBrand" --competitors "CompA,CompB"
+python scripts/fetch_page.py --url https://example.com --output audit-report.md
 ```
 
 ### `geo-llmstxt`
 Generate an `llms.txt` file for AI crawlers.
 
 ```bash
-python scripts/geo-llmstxt.py --url https://example.com --output llms.txt
-```
-
-### `geo-schema`
-Validate and fix structured data on a page.
-
-```bash
-python scripts/geo-schema.py --url https://example.com
-```
-
-### `geo-content`
-Rewrite content for AI search visibility.
-
-```bash
-python scripts/geo-content.py --input article.md --output optimized.md
-```
-
-## Configuration
-
-Create a `config.yaml` in the skill directory:
-
-```yaml
-ai_engines:
-  - chatgpt
-  - claude
-  - perplexity
-  - gemini
-  - google_overview
-
-brand:
-  name: "Your Brand"
-  competitors:
-    - "Competitor A"
-    - "Competitor B"
-
-output:
-  format: markdown  # or pdf
-  include_screenshots: false
-```
-
-## Directories
-
-- `scripts/` — Core audit and analysis scripts
-- `templates/` — Schema, llms.txt, and content templates
-- `assets/` — Logos, banners, and report styling
-
-## Quick Start Example
-
-```bash
-# Install
-git clone https://github.com/instax-dutta/geo-seo-universal.git
-cd geo-seo-universal
-./install.sh
-
-# Run audit
-python scripts/geo-audit.py --url https://mysite.com
-
-# Generate llms.txt
-python scripts/geo-llmstxt.py --url https://mysite.com
+python scripts/llmstxt_generator.py --url https://example.com --output llms.txt
 ```
 
 ## Why This Works
 
 - **Zero platform lock-in:** Works with any agent that can run Python or read Markdown.
-- **Multi-engine coverage:** Audits ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews simultaneously.
+- **Multi-engine coverage:** Audits ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews.
 - **Actionable output:** Every finding comes with exact code to paste, not just a score.

@@ -40,4 +40,4 @@ This skill is designed for autonomous AI agents (Hermes, OpenCode, etc.). Use th
 Universal architecture, structured for portability and easy maintenance by any coding agent.
 
 ## License
-MIT License
+MIT
